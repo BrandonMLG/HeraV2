@@ -1,0 +1,168 @@
+*,*:after,*:before{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*#contenedor_carga{
+    background-color: #ffffff;
+    height: 10px;
+    width: 100px;
+    position: fixed;
+    -webkit-transition:  all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}*/
+
+#carga{
+    border: 3px solid #F2F3F5;
+    border-top-color: #1BF6Bf;
+    border-top-style: groove;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    
+/*  centrar
+    position:;*/
+    top: ;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 200px;
+    -webkit-animation: girar 1s linear infinite;
+    -o-animation: girar 1s linear infinite;
+    animation: girar 1s linear infinite;
+}
+
+
+
+
+#cargaImagen{
+    border: 5px solid #ccc;
+    border-top-color: #F4255A;
+    border-top-style: inset;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    
+/*  centrar
+    position:;*/
+    top: ;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    margin-top: 30px;
+    -webkit-animation: girar 1s linear infinite;
+    -o-animation: girar 1s linear infinite;
+    animation: girar 1s linear infinite;
+}
+
+/*Spinner palpitando*/
+/* loader blink */
+.loader3 {
+width: 20px;
+height: 20px;
+background-color:#f3f3f3;
+border-radius: 50%;
+display:block;
+animation: spin3 4s linear infinite;
+}
+@keyframes spin3 {
+  0% { background-color:#f3f3f3; }
+  50% { background-color:#3498db; }
+  100% { background-color:#f3f3f3; }
+}
+
+/*Animacion rebote*/
+
+#pelota {
+  position: relative;
+  animation: rebota 2s alternate infinite ease-out;
+}
+
+@-webkit-keyframes rebota {
+  0% {
+    top: 60px;
+    height: 5px;
+  }
+  10% {
+    top: 56px;
+    height: 10px;
+  }
+  100% {
+    top: 20px;
+    height: 10px;
+  }
+}
+
+
+
+
+@keyframes girar {
+    from {transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+/*Animacion de entrada*/
+
+@keyframes desplace{
+  0%{ opacity:0 ; transform: translateX(1000px)}
+  60% { opacity:0.8 ;transform:translateX(-150px) translateY(25px) rotate(3deg) }
+  80% { opacity:0.9 ;transform:translateX(150px) translateY(25px) rotate(-3deg) }
+  100% { opacity:1 ;transform:translateX(0px) translateY(25px) rotate(0deg) }
+}
+#id_form {
+  opacity: 0;
+  max-width:380px;
+  height: 180px;
+  margin:auto;
+  padding:0px;
+  color: white;
+  border: 2px solid #5882FA;
+  background-color: #5882FA;
+}
+.id_form .h4 {
+   background-color: blue;
+}
+.activo {
+  animation: desplace 1.5s ease-in-out 0.2s forwards;
+}
+
+
+
+/*Basic Tooltip*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+/*Zoom*/
+
+
+.contenedor:hover .imagen {-webkit-transform:scale(1.3);transform:scale(1.3);}
+.contenedor {overflow:hidden;}
