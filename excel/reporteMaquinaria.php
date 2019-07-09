@@ -4,8 +4,9 @@ require 'Classes/PHPExcel.php';
 require 'conexion.php';
 
 $estado  = $_GET["estado"];
+$ubicacion  = $_GET["ubicacion"];
 
-$sql = 'SELECT * FROM Maquinaria WHERE estado like "%'.$estado.'%"';
+$sql = 'SELECT * FROM Maquinaria WHERE estado like "%'.$estado.'%" AND ubicacion like "%'.$ubicacion.'%"';
     
 $mysqli->set_charset("utf8");
 $resultado = $mysqli->query($sql);

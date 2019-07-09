@@ -53,11 +53,13 @@ if (!$BE->siAutentificado()) {
                 var valorBusqueda = $('#busqueda').val();
                 var criterio = $('#criterio').val();
                 var estado = $('#estado').val();
+                var ubicacion = $('#ubicacion').val();
 
                 var parametros = {
                     "busqueda": valorBusqueda,
                     "criterio": criterio,
                     "estado": estado,
+                    "ubicacion": ubicacion,
                 };
                 $.ajax({
                     data: parametros, //datos que se envian a traves de ajax
@@ -140,59 +142,58 @@ if (!$BE->siAutentificado()) {
                             </select>
                             <small class="form-control-feedback">Estado</small> 
                         </div>
-                        <div class="col-md-3">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="javascript:void(0)">Incio</a>
-                                </li>
-                                <li class="breadcrumb-item">Extras</li>
-                                <li class="breadcrumb-item active">Maquinaria Hera</li>
-                            </ol>
-                        </div>
-                        <div>
-                            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                        <div class="col-md-3 text-center">
+                            <select class="form-control custom-select btn-secondary" id="ubicacion" onchange="realizaProceso()">
+                                <option class="text-center" value="">Todos</option>
+                                <?php echo $BE->mostrarUbicacionesMaquinaria() ?>
+                            </select>
+                            <small class="form-control-feedback ">Ubicación</small> 
                         </div>
                     </div>
-                </div>
-                
-                <section id="tabla_resultado">
-
-                </section>    
-            </div>
-
-            <?php echo $BE->alertaCerrarSesion(); ?>
-
-            <div class="right-sidebar">
-                <div class="slimscrollright">
-                    <div class="rpanel-title">Panel de Servicios<span><i class="ti-close right-side-toggle"></i></span> </div>
-                    <div class="r-panel-body">
-                        <ul id="themecolors" class="m-t-20">
-                            <li><b>Light sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                            <li class="d-block m-t-30"><b>Dark sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme working">7</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                        </ul>
-
+                    <div>
+                        <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
                     </div>
                 </div>
-            </div>
+         
 
+            <section id="tabla_resultado">
+
+            </section>    
+        </div>
+
+        <?php echo $BE->alertaCerrarSesion(); ?>
+
+        <div class="right-sidebar">
+            <div class="slimscrollright">
+                <div class="rpanel-title">Panel de Servicios<span><i class="ti-close right-side-toggle"></i></span> </div>
+                <div class="r-panel-body">
+                    <ul id="themecolors" class="m-t-20">
+                        <li><b>Light sidebar</b></li>
+                        <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                        <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                        <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
+                        <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
+                        <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                        <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
+                        <li class="d-block m-t-30"><b>Dark sidebar</b></li>
+                        <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme working">7</a></li>
+                        <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                        <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
+                        <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                        <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                        <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
 
     </div>
-    <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
-    <!-- ============================================================== -->
+
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
 </div>
 <!-- ============================================================== -->
 <!-- End Wrapper -->

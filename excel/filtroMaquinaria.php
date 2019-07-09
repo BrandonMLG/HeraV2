@@ -6,9 +6,9 @@ require 'conexion.php';
 $busqueda = $_GET["busqueda"];
 $criterio = $_GET["criterio"];
 $estado = $_GET["estado"];
+$ubicacion = $_GET["ubicacion"];
 
-$sql ='SELECT * FROM Maquinaria WHERE 
-		'.$criterio.' = "'.$busqueda.'" AND estado LIKE "%'.$estado.'%" ORDER BY Modelo, Estado';
+$sql ='SELECT * FROM Maquinaria WHERE '.$criterio.' = "'.$busqueda.'" AND estado LIKE "%'.$estado.'%" AND ubicacion like "%'.$ubicacion.'%" ORDER BY Modelo, Estado';
 $mysqli->set_charset("utf8");
 $resultado = $mysqli->query($sql);
 

@@ -80,8 +80,8 @@ class Modelo {
         }
     }
 
-    public function numMaquinas($estado) {
-        $sentencia = $this->conexion->query('select count(*) as numero from maquinaria WHERE estado like "%' . $estado . '%"');
+    public function numMaquinas($estado,$ubicacion) {
+        $sentencia = $this->conexion->query('select count(*) as numero from maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%'.$ubicacion.'%"');
         $sentencia->execute();
         foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $num) {
             return $num;
@@ -162,9 +162,9 @@ class Modelo {
         }
     }
 
-    public function buscarMaquinaria($Ubicacion, $criterio, $estado) {
+    public function buscarMaquinaria($busqueda, $criterio, $estado, $ubicacion) {
         $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE 
-		' . $criterio . ' = "' . $Ubicacion . '" AND estado LIKE "%' . $estado . '%" ORDER BY Modelo, Estado');
+		' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%'.$ubicacion.'%" ORDER BY Modelo, Estado');
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -271,8 +271,8 @@ class Modelo {
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function numCoincidenciasbuscarMaquinaria($Ubicacion, $criterio, $estado) {
-        $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM Maquinaria WHERE ' . $criterio . ' = "' . $Ubicacion . '" AND estado LIKE "%' . $estado . '%"');
+    public function numCoincidenciasbuscarMaquinaria($busqueda, $criterio, $estado,$ubicacion) {
+        $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM Maquinaria WHERE ' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%'.$ubicacion.'%"');
         $sentencia->execute();
         foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $numero) {
             return $numero;
@@ -653,8 +653,8 @@ class Modelo {
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function MostrarMaquinaria($estado) {
-        $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE estado like "%' . $estado . '%"');
+    public function MostrarMaquinaria($estado,$ubicacion) {
+        $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%'.$ubicacion.'%"');
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }

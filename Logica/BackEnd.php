@@ -284,16 +284,16 @@ class BackEnd {
         return $coincidencia["Usuario"];
     }
 
-    public function buscarMaquinaria($Ubicacion, $criterio, $estado) {
-        $coincidencias = $this->modelo->buscarMaquinaria($Ubicacion, $criterio, $estado);
-        $Numerocoincidencias = $this->modelo->numCoincidenciasbuscarMaquinaria($Ubicacion, $criterio, $estado);
+    public function buscarMaquinaria($busqueda, $criterio, $estado,$ubicacion) {
+        $coincidencias = $this->modelo->buscarMaquinaria($busqueda, $criterio, $estado,$ubicacion);
+        $Numerocoincidencias = $this->modelo->numCoincidenciasbuscarMaquinaria($busqueda, $criterio, $estado,$ubicacion);
         $cont = 1;
         $acu = '          <div class="row">      
                         <div class="col-md-12">
                             <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title text-center">Maquinaria: <Strong>' . $Ubicacion . ' </Strong></h3>
-                                      <h5 class="card-subtitle  text-lg-right"><span class="text-danger">' . $Numerocoincidencias["Num"] . ' coincidencias</span> <a href="../excel/filtroMaquinaria.php?busqueda=' . $Ubicacion . '&criterio=' . $criterio . '&estado=' . $estado . '" class="btn-sm btn-primary btn-rounded text-white ml-3 mr-2"><i class="fa fa-cloud-download"></i> Importar</a></h5>
+                                <h3 class="card-title text-center">Maquinaria: <Strong>' . $busqueda . ' </Strong></h3>
+                                      <h5 class="card-subtitle  text-lg-right"><span class="text-danger font-weight-bold">' . $Numerocoincidencias["Num"] . ' coincidencias</span> <a href="../excel/filtroMaquinaria.php?busqueda=' . $busqueda . '&criterio=' . $criterio . '&estado=' . $estado . '&ubicacion=' . $ubicacion . '" class="btn-sm btn-primary btn-rounded text-white ml-3 mr-2"><i class="fa fa-cloud-download"></i> Importar</a></h5>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
@@ -863,16 +863,16 @@ class BackEnd {
         }
     }
 
-    public function mostrarMaquinariaV2($estado) {
-        $registros = $this->modelo->MostrarMaquinaria($estado);
-        $Numerocoincidencias = $this->modelo->numMaquinas($estado);
+    public function mostrarMaquinariaV2($estado,$ubicacion) {
+        $registros = $this->modelo->MostrarMaquinaria($estado,$ubicacion);
+        $Numerocoincidencias = $this->modelo->numMaquinas($estado,$ubicacion);
         $acu = '                   
                                 <div class="row">      
                         <div class="col-md-12">
                                          <div class="card">
                                             <div class="card-body">
-                                             <h4 class="card-title text-center">Concentrado de Maquinaria</h4>
-                                              <h5 class="card-subtitle  text-lg-right"><span class="text-danger">' . $Numerocoincidencias["numero"] . ' coincidencias</span> <a href="../excel/reporteMaquinaria.php?estado=' . $estado . '" class="btn-sm btn-primary btn-rounded text-white ml-3 mr-2"><i class="fa fa-cloud-download"></i> Importar</a></h5>
+                                             <h4 class="card-title text-center">Concentrado de Maquinaria <span class="font-weight-bold">'.$ubicacion.'</span></h4>
+                                              <h5 class="card-subtitle  text-lg-right"><span class="text-danger font-weight-bold">' . $Numerocoincidencias["numero"] . ' coincidencias</span> <a href="../excel/reporteMaquinaria.php?estado=' . $estado . '&ubicacion='.$ubicacion.'" class="btn-sm btn-primary btn-rounded text-white ml-3 mr-2"><i class="fa fa-cloud-download"></i> Importar</a></h5>
                                                 <div class="table-responsive">
                                                     <table class="table">
                                                         <thead>
