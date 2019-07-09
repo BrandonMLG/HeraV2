@@ -74,7 +74,7 @@ class BackEnd {
                         </ul>
                         <!-- User profile and search -->
                         <div class="text-center col-lg-11 col-sm-9 col-md-6">
-                            <p class="h3 text-white">
+                            <p class="h4 text-white">
                                 ' . $Titulo . '
                             </p>
                         </div>
@@ -825,7 +825,7 @@ class BackEnd {
 
     public function verificarFotoMaquina($id) {
 
-        if (file_exists('../main/imagenesMaquinaria/' . $id . '.JPG')) {
+        if (file_exists('../../main/imagenesMaquinaria/' . $id . '.JPG')) {
             return "imagenesMaquinaria/$id.JPG";
         } else {
             return "imagenesMaquinaria/notfound.png";
