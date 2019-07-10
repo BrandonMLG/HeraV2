@@ -4,13 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/Logica/BackEnd.php</file>
-            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/ChecklistMP.php</file>
-            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/AJAX/buscarRefacciones.php</file>
+            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/excel/reporteMaquinaria.php</file>
             <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/Modelo/Modelo.php</file>
             <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/Maquinaria.php</file>
-            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/ViewRefacciones.php</file>
-            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/AJAX/consultaInfoMaquina.php</file>
-            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/AJAX/verRefaccionesMec.php</file>
+            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/excel/filtroMaquinaria.php</file>
+            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/ConsultarMaquinaria.php</file>
+            <file>file:/C:/xampp/htdocs/proyectos/HeraV.2/main/AJAX/buscarMaquinas.php</file>
         </group>
     </open-files>
 </project-private>
