@@ -40,7 +40,7 @@ class PDF extends FPDF {
         // Arial italic 8
         $this->SetFont('Arial', 'IU', 11);
         // Número de página
-        $this->Cell(0, 10, $this->Decode($usuario["Usuario"]), 0, 0, 'C');
+        $this->Cell(0, 10, $this->Decode($usuario["nombre"]), 0, 0, 'C');
 
         // Posición: a 1,5 cm del final
         $this->SetY(-45);

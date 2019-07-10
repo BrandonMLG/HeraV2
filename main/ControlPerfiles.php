@@ -474,10 +474,10 @@ if (!$BE->siAutentificado()) {
                                 <div class="card-body">
                                     <h4 class="card-title"><strong>1.- Registrar Usuario</strong></h4>
                                     <form class="form-material m-t-40" method="POST" action="procesarFormulario.php">
-                                        <div class="form-group col-12 hide">
-                                            <input type="text" class="form-control form-control-line" value="1" placeholder="Nombre" name="formUser" autocomplete="off"> </div>
                                         <div class="form-group col-12">
-                                            <input type="text" class="form-control form-control-line" value="" placeholder="Nombre" name="User" autocomplete="off"> </div>
+                                            <input type="text" class="form-control form-control-line" value="" placeholder="User (GT)" name="User" autocomplete="off"> </div>
+                                        <div class="form-group col-12">
+                                            <input type="text" class="form-control form-control-line" value="" placeholder="Nombre" name="Nombre" autocomplete="off"> </div>
                                         <div class="form-group col-12">
                                             <input type="text" class="form-control form-control-line" value="" placeholder="Departamento" name="Departamento" autocomplete="off"> </div>
                                         <div class="form-group col-12">

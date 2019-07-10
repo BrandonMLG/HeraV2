@@ -1687,9 +1687,9 @@ class BackEnd {
     }
 
     public function registrarUsuaurio() {
-        if (isset($_POST["User"]) && isset($_POST["Departamento"]) && isset($_POST["Seccion"]) && isset($_POST["Password"]) && isset($_POST["Privilegios"])) {
-            if ($_POST["User"] <> '' && $_POST["Departamento"] <> '' && $_POST["Seccion"] <> '' && $_POST["Password"] <> '' && $_POST["Privilegios"] <> '') {
-                if ($this->modelo->registrarUsuario($_POST["User"], $_POST["Departamento"], $_POST["Seccion"], md5($_POST["Password"]), $_POST["Privilegios"])) {
+            if (isset($_POST["User"]) && isset($_POST["Departamento"]) && isset($_POST["Seccion"]) && isset($_POST["Password"]) && isset($_POST["Privilegios"]) && isset($_POST["Nombre"])) {
+            if ($_POST["User"] <> '' && $_POST["Departamento"] <> '' && $_POST["Seccion"] <> '' && $_POST["Password"] <> '' && $_POST["Privilegios"] <> ''  && $_POST["Nombre"] <> '') {
+                if ($this->modelo->registrarUsuario($_POST["User"],$_POST["Nombre"], $_POST["Departamento"], $_POST["Seccion"], md5($_POST["Password"]), $_POST["Privilegios"])) {
                     $this->redireccionar('ControlPerfiles.php?status=' . md5('success'));
                 } else {
                     $this->redireccionar('ControlPerfiles.php?status=' . md5('bad'));

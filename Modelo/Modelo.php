@@ -80,8 +80,8 @@ class Modelo {
         }
     }
 
-    public function numMaquinas($estado,$ubicacion) {
-        $sentencia = $this->conexion->query('select count(*) as numero from maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%'.$ubicacion.'%"');
+    public function numMaquinas($estado, $ubicacion) {
+        $sentencia = $this->conexion->query('select count(*) as numero from maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%' . $ubicacion . '%"');
         $sentencia->execute();
         foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $num) {
             return $num;
@@ -164,7 +164,7 @@ class Modelo {
 
     public function buscarMaquinaria($busqueda, $criterio, $estado, $ubicacion) {
         $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE 
-		' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%'.$ubicacion.'%" ORDER BY Modelo, Estado');
+		' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%' . $ubicacion . '%" ORDER BY Modelo, Estado');
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -271,8 +271,8 @@ class Modelo {
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function numCoincidenciasbuscarMaquinaria($busqueda, $criterio, $estado,$ubicacion) {
-        $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM Maquinaria WHERE ' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%'.$ubicacion.'%"');
+    public function numCoincidenciasbuscarMaquinaria($busqueda, $criterio, $estado, $ubicacion) {
+        $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM Maquinaria WHERE ' . $criterio . ' = "' . $busqueda . '" AND estado LIKE "%' . $estado . '%" AND ubicacion LIKE "%' . $ubicacion . '%"');
         $sentencia->execute();
         foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $numero) {
             return $numero;
@@ -310,13 +310,12 @@ class Modelo {
             }
         }
     }
-    
-    
-     public function numRefaccionesEncontradasMec($criterioBusqueda, $filtro) {
-            $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM refaccion WHERE ' . $filtro . ' LIKE "%' . $criterioBusqueda . '%"');
-            $sentencia->execute();
-            foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $numero) {
-                return $numero;
+
+    public function numRefaccionesEncontradasMec($criterioBusqueda, $filtro) {
+        $sentencia = $this->conexion->query('SELECT COUNT(*) as Num FROM refaccion WHERE ' . $filtro . ' LIKE "%' . $criterioBusqueda . '%"');
+        $sentencia->execute();
+        foreach ($sentencia->fetchAll(PDO::FETCH_ASSOC) as $numero) {
+            return $numero;
         }
     }
 
@@ -379,13 +378,14 @@ class Modelo {
         return $sentencia->execute();
     }
 
-    public function registrarUsuario($Usuario, $Departamento, $Seccion, $Password, $Privilegios) {
-        $sentencia = $this->conexion->prepare('CALL registrar_Usuario (?, ?, ?, ?, ?)');
+    public function registrarUsuario($Usuario, $Nombre, $Departamento, $Seccion, $Password, $Privilegios) {
+        $sentencia = $this->conexion->prepare('CALL registrar_Usuario (?, ?, ?, ?, ?, ?)');
         $sentencia->bindParam(1, $Usuario);
-        $sentencia->bindParam(2, $Departamento);
-        $sentencia->bindParam(3, $Seccion);
-        $sentencia->bindParam(4, $Password);
-        $sentencia->bindParam(5, $Privilegios);
+        $sentencia->bindParam(2, $Nombre);
+        $sentencia->bindParam(3, $Departamento);
+        $sentencia->bindParam(4, $Seccion);
+        $sentencia->bindParam(5, $Password);
+        $sentencia->bindParam(6, $Privilegios);
         return $sentencia->execute();
     }
 
@@ -520,8 +520,8 @@ class Modelo {
         $sentencia->bindParam(2, $ID_Actividad);
         return $sentencia->execute();
     }
-    
-      public function eliminarActividadModulo_ChecklistMP($ID_Actividad) {
+
+    public function eliminarActividadModulo_ChecklistMP($ID_Actividad) {
         $sentencia = $this->conexion->prepare("UPDATE actividad_checklist SET activo= 0 WHERE ID_Actividad =?");
         $sentencia->bindParam(1, $ID_Actividad);
         return $sentencia->execute();
@@ -653,8 +653,8 @@ class Modelo {
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function MostrarMaquinaria($estado,$ubicacion) {
-        $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%'.$ubicacion.'%"');
+    public function MostrarMaquinaria($estado, $ubicacion) {
+        $sentencia = $this->conexion->query('SELECT * FROM Maquinaria WHERE estado like "%' . $estado . '%" AND ubicacion like "%' . $ubicacion . '%"');
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -709,12 +709,12 @@ class Modelo {
             return $sentencia->fetchAll(PDO::FETCH_ASSOC);
         }
     }
-    
-     public function BuscarRefaccionesMec($criterioBusqueda, $filtro) {
-      
-            $sentencia = $this->conexion->query('SELECT * FROM refaccion WHERE ' . $filtro . ' LIKE "%' . $criterioBusqueda . '%"');
-            $sentencia->execute();
-            return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+    public function BuscarRefaccionesMec($criterioBusqueda, $filtro) {
+
+        $sentencia = $this->conexion->query('SELECT * FROM refaccion WHERE ' . $filtro . ' LIKE "%' . $criterioBusqueda . '%"');
+        $sentencia->execute();
+        return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function BuscarInOutRef($tipo, $inicio, $fin) {
